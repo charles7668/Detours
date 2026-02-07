@@ -101,8 +101,8 @@ static BOOL UPDATE_IMPORTS_XX(HANDLE hProcess,
             inh.IMPORT_DIRECTORY.VirtualAddress >= ish.VirtualAddress &&
             inh.IMPORT_DIRECTORY.VirtualAddress < ish.VirtualAddress + ish.SizeOfRawData) {
 
-            inh.IAT_DIRECTORY.VirtualAddress = ish.VirtualAddress;
-            inh.IAT_DIRECTORY.Size = ish.SizeOfRawData;
+            inh.IAT_DIRECTORY.VirtualAddress = inh.IMPORT_DIRECTORY.VirtualAddress;
+            inh.IAT_DIRECTORY.Size = inh.IMPORT_DIRECTORY.Size;
         }
     }
 
